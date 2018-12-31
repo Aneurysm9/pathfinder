@@ -5,10 +5,10 @@ import (
 	"fmt"
 )
 
-// AStar uses the A* algorithm to find a shortest path between two Nodes.
+// AStarFunc can be used to find a shortest path to a node that satisfies a goal function.
 // It returns a Path from the source to the destination, the cost of that path,
 // and an error if it was unable to find a path.
-func (f Finder) AStar(from, to Node) (Path, int, error) {
+func (f Finder) AStarFunc(from Node, to GoalFunc) (Path, int, error) {
 	frontier := make(priorityQueue, 1)
 	frontier[0] = &item{node: from, priority: 0, index: 0}
 	heap.Init(&frontier)
@@ -22,7 +22,7 @@ func (f Finder) AStar(from, to Node) (Path, int, error) {
 		i := heap.Pop(&frontier).(*item)
 		cur := i.node
 
-		if cur == to {
+		if to(cur) {
 			curPath := Path{cur}
 			c := 0
 			for n := cameFrom[cur]; n != from; n = cameFrom[n] {
@@ -44,4 +44,11 @@ func (f Finder) AStar(from, to Node) (Path, int, error) {
 	}
 
 	return Path{}, -1, fmt.Errorf("Unable to find path")
+}
+
+// AStar uses the A* algorithm to find a shortest path between two Nodes.
+// It returns a Path from the source to the destination, the cost of that path,
+// and an error if it was unable to find a path.
+func (f Finder) AStar(from, to Node) (Path, int, error) {
+	return f.AStarFunc(from, func(n Node) bool { return n == to })
 }

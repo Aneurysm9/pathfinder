@@ -29,3 +29,6 @@ type Finder struct {
 func NewFinder(g Graph) *Finder {
 	return &Finder{g}
 }
+
+// GoalFunc represents a search predicate
+type GoalFunc func(Node) bool
