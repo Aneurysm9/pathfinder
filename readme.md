@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Aneurysm9/pathfinder.svg?branch=master)](https://travis-ci.org/Aneurysm9/pathfinder)
+
 # About
 
 Pathfinder seeks to provide a simple interface to common graph search algorithms.
