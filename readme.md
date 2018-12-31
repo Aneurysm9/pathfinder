@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Aneurysm9/pathfinder.svg?branch=master)](https://travis-ci.org/Aneurysm9/pathfinder)
+[![Build Status](https://travis-ci.org/Aneurysm9/pathfinder.svg?branch=master)](https://travis-ci.org/Aneurysm9/pathfinder) [![GoDoc](https://godoc.org/github.com/Aneurysm9/pathfinder?status.svg)](https://godoc.org/github.com/Aneurysm9/pathfinder)
 
 # About
 
