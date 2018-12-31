@@ -1,3 +1,4 @@
+// Package pathfinder seeks to provide a small set of useful pathfinding algorithms with a simple, easy-to-use interface.
 package pathfinder
 
 // Node represents a node in the graph that can be traversed.
